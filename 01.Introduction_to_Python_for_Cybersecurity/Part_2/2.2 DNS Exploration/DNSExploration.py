@@ -5,25 +5,25 @@ import socket
 def ReverseDNS(ip):
     try:
         result = socket.gethostbyaddr(ip)
-        return [result[0]]+result[1]
-    except socket.herror:
-        return None
+    except:
+        return []
+    return [result[0]] + result[1]
 
 def DNSRequest(domain):
     ips = []
     try:
-        result = dns.resolver.resolve(domain)
+        result = dns.resolver.resolve(domain, 'A')
         if result:
             print(domain)
             for answer in result:
                 print(answer)
                 print("Domain Names: %s" % ReverseDNS(answer.to_text()))
-    except (dns.resolver.NXDOMAIN, dns.exception.Timeout):
-        return []
+    except (dns.resolver.NXDOMAIN, dns.exception.Timeout, dns.resolver.NoAnswer):
+        return
     return ips
 
 def SubdomainSearch(domain, dictionary,nums):
-    successes = []
+    # successes = []
     for word in dictionary:
         subdomain = word+"."+domain
         DNSRequest(subdomain)
@@ -32,9 +32,14 @@ def SubdomainSearch(domain, dictionary,nums):
                 s = word+str(i)+"."+domain
                 DNSRequest(s)
 
-domain = "google.com"
+# domain = "google.com"
+domain = "hoster.by"
 d = "subdomains.txt"
 dictionary = []
 with open(d,"r") as f:
-    dictionary = f.read().splitlines()
+    try:
+        dictionary = f.read().splitlines()
+    except dns.resolver.NoAnswer:
+        print(f'{domain}: No answer')
+
 SubdomainSearch(domain,dictionary,True)
