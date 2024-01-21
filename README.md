@@ -13,8 +13,11 @@
 
 <img src="./art/logo.png" alt="Bot logo" width="300" height="156.5">
 
-# [Introduction to Python for Cybersecurity](https://www.coursera.org/learn/pythonforcybersecurity-introduction/home/info)
-
+# [01. Introduction to Python for Cybersecurity](https://www.coursera.org/learn/pythonforcybersecurity-introduction/home/info)
+# [02.Execution, persistence, privilege escalation and evasion](https://www.coursera.org/learn/execution-persistence-privilege-escalation-and-evasion/home/info)
+# [03.Credential Access, discovery, lateral movement & collection]()
+# [04.Python for Command-and-control, Exfiltration and Impact]()
+# [05.Python for Active Defense]()
 </div>
 
 ## How it works?
