@@ -32,8 +32,8 @@ It's very simple: here are the solutions for the [Stable Diffusion - Image to Pr
 
 2. Create a Python virtual environment.
 3. Install all necessary packages for our code to work using the following command:
-
      ```
      pip install -r requirements.txt
      ```
 
+for [scapy](https://scapy.readthedocs.io/en/latest/installation.html#latest-release) on windows [download](https://npcap.com/#download) and install npcap
